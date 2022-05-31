@@ -92,15 +92,14 @@
   border-radius: 5px;
   background: white;
   position: fixed;
-  right: 30px;
+  right: 20px;
   bottom: 10px;
-  height: 450px;
-  width: 350px;
+  height: 500px;
+  width: 450px;
   min-height: 200px;
   min-width: 200px;
   float: left;
   z-index: 10;
-  cursor: move;
   resize: both;
   overflow: auto;
 }
@@ -110,10 +109,21 @@
   text-align: center;
 }
 
+#draggable {
+  cursor: move;
+}
+
 embed {
-  cursor:pointer;
-  height: 80%;
-  width: 80%
+  height: 85%;
+  width: 95%;
+  object-fit: cover;
+}
+
+embed > img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .close {
