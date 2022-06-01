@@ -49,10 +49,13 @@ function initToggleManual() {
 
 
 window.onload = function(){
+  const pageIdsArray = ['320255114', '320255188', '320255189', '320255190', '320255191', '320255192', '320255193']
 
   const hash = window.location.hash
-  const pageId = hash.split('/')
-  document.getElementById("manual-text").setAttribute("src", `./assets/manual/${pageId[2] ?? 'main'}.html`);
+  const pageId = hash.split('/')[2]
+  const page = pageId && pageIdsArray.includes(pageId) ? pageId : 'main'
+
+  document.getElementById("manual-text").setAttribute("src", `./assets/manual/${page}.html`);
 
   initDraggable()
   initToggleManual()
@@ -60,8 +63,10 @@ window.onload = function(){
   // change embed source
   window.addEventListener('popstate', function() {
     const hash = window.location.hash
-    const pageId = hash.split('/')
-    document.getElementById("manual-text").setAttribute("src", `./assets/manual/${pageId[2] ?? 'main'}.html`);
+    const pageId = hash.split('/')[2]
+    const page = pageId && pageIdsArray.includes(pageId) ? pageId : 'main'
+    console.log(pageId, pageIdsArray.includes(pageId))
+    document.getElementById("manual-text").setAttribute("src", `./assets/manual/${page}.html`);
   });
 }
 
