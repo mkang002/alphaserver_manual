@@ -88,6 +88,30 @@
   visibility: visible;
 }
 
+.manual-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 28px;
+  background-color: #4e4e4e;
+  padding: 10px 20px;
+  height: 40px;
+  margin: auto;
+}
+
+.header-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header-title img {
+  width: 30px;
+  padding-right: 10px;
+}
+
 .manual-container {
   border-radius: 5px;
   background: white;
@@ -97,7 +121,7 @@
   height: 500px;
   width: 450px;
   min-height: 200px;
-  min-width: 200px;
+  min-width: 250px;
   float: left;
   z-index: 10;
   resize: both;
@@ -105,7 +129,6 @@
 }
 
 .manual-wrapper {
-  padding: 30px 20px;
   text-align: center;
 }
 
@@ -114,42 +137,63 @@
 }
 
 embed {
-  height: 85%;
+  height: calc(100% - 80px);
   width: 95%;
-  object-fit: cover;
+  padding-top: 10px;
 }
 
-embed > img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
 
 .close {
-  position: absolute;
-  right: 25px;
-  top: 25px;
-  width: 30px;
-  height: 30px;
-  opacity: 0.3;
-}
-.close:hover {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: #ba1f24;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 150ms;
   opacity: 1;
 }
-.close:before, .close:after {
-  position: absolute;
-  left: 15px;
-  content: ' ';
-  height: 15px;
-  width: 2px;
-  background-color: #333;
+
+.close:focus, .close:hover {
+  transform: rotateZ(90deg);
+  background: #9e1116;
+  opacity: 1;
 }
-.close:before {
+
+.icon-cross {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+
+.icon-cross:before, .icon-cross:after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  width: 18px;
+  height: 2px;
+  background: #FFFFFF;
+  border-radius: 2px;
+  opacity: 1;
+}
+
+.icon-cross:before {
   transform: rotate(45deg);
 }
-.close:after {
+
+.icon-cross:after {
   transform: rotate(-45deg);
 }
-
-
