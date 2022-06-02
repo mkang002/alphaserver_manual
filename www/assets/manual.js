@@ -47,14 +47,16 @@ function initToggleManual() {
   }
 }
 
-
-window.onload = function(){
+const getPageId = () => {
   const pageIdsArray = ['320255114', '320255188', '320255189', '320255190', '320255191', '320255192', '320255193']
 
   const hash = window.location.hash
   const pageId = hash.split('/')[2]
-  const page = pageId && pageIdsArray.includes(pageId) ? pageId : 'main'
+  return pageId && pageIdsArray.includes(pageId) ? pageId : 'index'
+}
 
+window.onload = function(){
+  const page = getPageId()
   document.getElementById("manual-text").setAttribute("src", `./assets/manual/${page}.html`);
 
   initDraggable()
@@ -62,10 +64,7 @@ window.onload = function(){
 
   // change embed source
   window.addEventListener('popstate', function() {
-    const hash = window.location.hash
-    const pageId = hash.split('/')[2]
-    const page = pageId && pageIdsArray.includes(pageId) ? pageId : 'main'
-    console.log(pageId, pageIdsArray.includes(pageId))
+    const page = getPageId()
     document.getElementById("manual-text").setAttribute("src", `./assets/manual/${page}.html`);
   });
 }
